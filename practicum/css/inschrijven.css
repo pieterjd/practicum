@@ -1,0 +1,26 @@
+.beschikbaar{
+	color:green;
+}
+.onbeschikbaar{
+	color:red;
+}
+.eventueel{
+	color:darkorange;
+}
+.zwart{
+	color:black;
+}
+.geel{
+	background:yellow;
+}
+body{
+	font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+	font-size: 12px;
+}
+.tab{
+	//height:500px;
+	overflow:auto;
+}
+th{
+	border:5px solid black;
+}

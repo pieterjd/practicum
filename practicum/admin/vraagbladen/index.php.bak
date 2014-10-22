@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Ondervraagbladen</title>
+<script src="questionAjax.js"></script> 
+
+<script type="text/javascript">
+
+function openOverview(){
+	var pracId=document.getElementById("pracid").value;
+	var winpops=window.open("overview.php?pracId="+pracId,"","width=900,height=600,scrollbars,resizable");
+}
+</script>
+</head>
+<body>
+<?php
+	include_once('../../daos/dbConnect.php');
+	connect();
+	include_once('../../daos/groepDao.php');
+	include_once('../../daos/studentDao.php');
+	include_once('../../daos/pracDao.php');
+?>
+<form> 
+practicum id: <select  id="pracid" onchange="generatePages()" >
+<?php
+	$year=date('Y');
+	$pracs=getAllPrac($year);
+	foreach($pracs as $id=>$name){
+		echo "<option value=\"$id\">$name</option>";
+	}
+?>
+</select><!--practicum id-->
+Dynamic generation: <input type="text" id="genType" onkeyup="generatePages()" value="1" size="2" />
+ondervrager: <input type="text" id="ondervrager" onkeyup="generatePages()" value="Pieter-Jan" inputtooltiptext="Vul je naam in."/>
+code pagina? <select id="codeGen" onchange="generatePages()" ><option value="1" selected>Ja</option><option value="0" >Nee</option></select><br/>
+groepen: <input type="text" id="groepen" onkeyup="generatePages()" value="2,3,4" /> <a href="javascript:openOverview()">Zoek groepsnummer</a><br/>
+datum: <input type="text" id="datum" onkeyup="generatePages()" value="today"/> Je kan ook <code>+2 days</code> of <code>today</code> invullen
+
+
+</form>
+<hr/>
+<br/><br/>
+<span id="output"></span>
+</body>
+</html>

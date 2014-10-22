@@ -1,0 +1,9 @@
+<html>
+<head>
+<title>Admin module voor alle adminstratieve regelingen ivm practica</title>
+<script src="questionAjax.js"></script> 
+</head>
+<body>
+<a href="index_generateQuestions.html>Genereer de ondervraagbladen in LaTeX</a>
+</body>
+</html>
